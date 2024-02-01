@@ -1,0 +1,45 @@
+<div class="card-body">
+    <form (ngSubmit)="onSubmit()" #formulario="ngForm">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="providers.name" name="nombre" required minlength="3"
+                maxlength="20" placeholder="Digite su Nombre" #nombre="ngModel">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger mt-2">
+                <div *ngIf="nombre.errors?.['required']">El nombre es requerido.</div>
+                <div *ngIf="nombre.errors?.['minlength'] || nombre.errors?.['maxlength']">Ingrese un nombre válido.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Dirección</label>
+            <input type="text" id="direccion" class="form-control" [(ngModel)]="providers.email" name="direccion" required minlength="4"
+                maxlength="50" placeholder="Digite la Dirección" #direccion="ngModel">
+            <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="text-danger mt-2">
+                <div *ngIf="direccion.errors?.['required']">La dirección es requerida.</div>
+                <div *ngIf="direccion.errors?.['minlength'] || direccion.errors?.['maxlength']">Ingrese una dirección válida.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>RUC</label>
+            <input type="number" id="ruc" class="form-control" [(ngModel)]="providers.ruc" name="RUC" required minlength="10"
+                maxlength="10" pattern="^\d{9}$" placeholder="Digite su número de RUC" #RUC="ngModel">
+            <div *ngIf="RUC.invalid && (RUC.dirty || RUC.touched)" class="text-danger mt-2">
+                <div *ngIf="RUC.errors?.['pattern']">Ingrese un ruc válido (9 dígitos).</div>
+                <div *ngIf="RUC.errors?.['minlength'] || RUC.errors?.['maxlength']">Ingrese un rucr válido (9 dígitos).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Número</label>
+            <input type="text" id="numero" class="form-control" [(ngModel)]="providers.number" name="NUMERO" required
+                   minlength="8" maxlength="10" numero placeholder="Digite su número" #Numero="ngModel">
+            <div *ngIf="Numero.invalid && (Numero.dirty || Numero.touched)" class="text-danger mt-2">
+              <div *ngIf="Numero.errors?.['required']">El Numero es requerido.</div>
+              <div *ngIf="Numero.errors?.['minlength'] || Numero.errors?.['numero']">Ingrese un Numero válido.</div>
+            </div>
+          </div>
+
+        <button class="btn btn-success" [disabled]="!formulario.valid">Enviar</button>
+       <a class="btn btn-danger" href="dashboard/proveedores" type="button"> Cancelar</a>
+    </form>
+</div>

@@ -1,37 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListarProveedorComponent } from './proveedores/listar-proveedor/listar-proveedor.component';
-import { EditarProveedorComponent } from './proveedores/editar-proveedor/editar-proveedor.component';
-import { NuevoProveedorComponent } from './proveedores/nuevo-proveedor/nuevo-proveedor.component';
-import { ProductosListarComponent } from './productos/productos-listar/productos-listar.component';
-import { ListarProductosComponent } from './productos/listar-productos/listar-productos.component';
-import { EditarProductosComponent } from './productos/editar-productos/editar-productos.component';
-import { NuevoProductosComponent } from './productos/nuevo-productos/nuevo-productos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ListarCategoriaComponent } from './categoria/listar-categoria/listar-categoria.component';
-import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
-import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component';
-import { NuevoClienteComponent } from './cliente/nuevo-cliente/nuevo-cliente.component';
+import { ListarProvidersComponent } from './providers/listar-providers/listar-providers.component';
+import { RegistrarProvidersComponent } from './providers/registrar-providers/registrar-providers.component';
+import { PagesComponent } from './pages.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { EditarProvidersComponent } from './providers/editar-providers/editar-providers.component';
 
 
 
 @NgModule({
   declarations: [
-    ListarProveedorComponent,
-    EditarProveedorComponent,
-    NuevoProveedorComponent,
-    ProductosListarComponent,
-    ListarProductosComponent,
-    EditarProductosComponent,
-    NuevoProductosComponent,
     DashboardComponent,
-    ListarCategoriaComponent,
-    ListarClienteComponent,
-    EditarClienteComponent,
-    NuevoClienteComponent
+    ListarProvidersComponent,
+    RegistrarProvidersComponent,
+    PagesComponent,
+    EditarProvidersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    SharedModule
+  ],
+  exports:[
+    DashboardComponent,
+    ListarProvidersComponent,
+    RegistrarProvidersComponent,
+    PagesComponent
   ]
 })
 export class PagesModule { }
