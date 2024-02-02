@@ -8,21 +8,35 @@
         <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form>
+        <form [formGroup]="loginForm">
+            <p class="text-danger">{{loginError}}</p>
             <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
-            <div class="input-group-append">
-                <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
+                <input type="text" class="form-control" placeholder="Username" formControlName="username">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                    <div *ngIf="username.errors?.['required']">
+                        El username es requerido.
+                    </div>
+                    <div *ngIf="username.errors?.['username']">
+                        El Email debe tener un formato válido.
+                    </div>
+                </div>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                    </div>
                 </div>
             </div>
-            </div>
             <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password">
-            <div class="input-group-append">
-                <div class="input-group-text">
-                <span class="fas fa-lock"></span>
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                    <div *ngIf="password.errors?.['required']">
+                        El password es requerido
+                    </div>
                 </div>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                    </div>
             </div>
             </div>
             <div class="row">
@@ -36,7 +50,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-                <button type="button" class="btn btn-primary btn-block" (click)="onLogin()">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block" (click)="login()">Sign In</button>
             </div>
             <!-- /.col -->
             </div>

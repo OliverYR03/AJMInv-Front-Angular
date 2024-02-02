@@ -7,6 +7,10 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { EditarProvidersComponent } from './providers/editar-providers/editar-providers.component';
+import { ListarProductsComponent } from './products/listar-products/listar-products.component';
+import { RegistarProductsComponent } from './products/registar-products/registar-products.component';
+import { EditarProductsComponent } from './products/editar-products/editar-products.component';
+import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
 
 
 
@@ -16,7 +20,11 @@ import { EditarProvidersComponent } from './providers/editar-providers/editar-pr
     ListarProvidersComponent,
     RegistrarProvidersComponent,
     PagesComponent,
-    EditarProvidersComponent
+    EditarProvidersComponent,
+    ListarProductsComponent,
+    RegistarProductsComponent,
+    EditarProductsComponent,
+    ListarUsuariosComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,38 @@
+
+<a class="btn btn-success float-end" href="products/nuevo" ><i class="fa fa-plus-circle"></i>
+    Agregar</a><br><br>
+
+<div class="panel-body table-responsive" id="listadoregistros">
+    <table class="table table-striped table-bordered table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Acciones</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Monto</th>
+                <th>Proveedor</th>
+                <th>Preecio</th>
+                <th>Imagen</th>
+                <th>Fecha</th>
+                
+            </tr>
+        
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let products of products">
+                <td><a class="btn btn-warning" (click)="updateProduct(products.idproducto)"><i class="fa-solid fa-pencil"></i></a>
+                    <a class="btn btn-danger" ><i class="fa-solid fa-xmark"></i></a>
+                    </td>
+                <td>{{products.idproducto}}</td>
+                <td>{{products.name}}</td>
+                <td>{{products.amount}}</td>
+                <td>{{products.suppliers}}</td>
+                <td>{{products.price}}</td>
+                <td>{{products.img}}</td>
+                <td>{{products.date}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

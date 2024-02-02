@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NopageFoundComponent } from './nopage-found/nopage-found.component';
@@ -14,13 +14,18 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
+import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NopageFoundComponent
+        NopageFoundComponent,
     ],
-    providers: [],
+    providers: [
+        {provide: HTTP_INTERCEPTORS,useClass:JwtInterceptorService,multi:true},
+        {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptorService,multi:true}
+    ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
@@ -29,7 +34,8 @@ import { FormsModule } from '@angular/forms';
         AuthModule,
         SharedModule,
         PagesModule,
-        CommonModule
+        CommonModule,
+        FormsModule
     ]
 })
 export class AppModule { }
