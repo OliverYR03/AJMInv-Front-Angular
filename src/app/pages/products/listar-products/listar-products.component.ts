@@ -36,7 +36,7 @@ export class ListarProductsComponent implements OnInit{
   }
 
   updateProduct(id:number){
-    this.router.navigate(['dashboard/products/editar',id]);
+    this.router.navigate(['productos/editar',id]);
   }
 
   deleteProduct(id:number){

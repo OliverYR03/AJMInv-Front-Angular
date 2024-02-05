@@ -2,8 +2,9 @@ export class Productos {
     idproducto:number;
     name:string;
     amount:number;
-    suppliers:[name:string];
+    suppliers:{name:string};
     price:number;
     img:string;
-    date:string;
+    date?:Date;
+    category:{name:string};
 }

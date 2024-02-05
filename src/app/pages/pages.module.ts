@@ -11,6 +11,7 @@ import { ListarProductsComponent } from './products/listar-products/listar-produ
 import { RegistarProductsComponent } from './products/registar-products/registar-products.component';
 import { EditarProductsComponent } from './products/editar-products/editar-products.component';
 import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
+import { ListarCategoryComponent } from './category/listar-category/listar-category.component';
 
 
 
@@ -24,7 +25,8 @@ import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuar
     ListarProductsComponent,
     RegistarProductsComponent,
     EditarProductsComponent,
-    ListarUsuariosComponent
+    ListarUsuariosComponent,
+    ListarCategoryComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +34,7 @@ import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuar
     SharedModule
   ],
   exports:[
+    ListarProvidersComponent,
     DashboardComponent,
     ListarProvidersComponent,
     RegistrarProvidersComponent,

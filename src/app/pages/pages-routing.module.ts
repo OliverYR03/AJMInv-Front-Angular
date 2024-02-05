@@ -7,18 +7,40 @@ import { ListarProvidersComponent } from './providers/listar-providers/listar-pr
 import { EditarProvidersComponent } from './providers/editar-providers/editar-providers.component';
 import { RegistrarProvidersComponent } from './providers/registrar-providers/registrar-providers.component';
 import { ListarProductsComponent } from './products/listar-products/listar-products.component';
+import { EditarProductsComponent } from './products/editar-products/editar-products.component';
+import { RegistarProductsComponent } from './products/registar-products/registar-products.component';
+import { ListarCategoryComponent } from './category/listar-category/listar-category.component';
 
 const routes:Routes=[
   {
     path:'dashboard',component: PagesComponent,
     children:[
       {path:'',component:DashboardComponent, data:{titulo:'Dashboard'}},
-      // Proveedores
-      {path:'proveedores',component:ListarProvidersComponent, data:{titulo:'proveedores'}},
-      {path: 'proveedores/editar/:id', component: EditarProvidersComponent, data:{titulo:'Editar Proveedor'}},
-      {path: 'proveedores/new', component: RegistrarProvidersComponent, data:{titulo: 'Registrar proveedor'}},
+      
       // Productos
-      {path: 'productos', component: ListarProductsComponent, data:{titulo:'productos'}}
+
+    ]
+  },
+  {
+    path: 'proveedores', component: PagesComponent,
+    children:[
+      {path:'',component:ListarProvidersComponent, data:{titulo:'Proveedores Listar'}},
+      {path: 'editar/:id', component: EditarProvidersComponent, data:{titulo:'Editar Proveedor'}},
+      {path: 'new', component: RegistrarProvidersComponent, data:{titulo: 'Registrar proveedor'}}
+    ]
+  },
+  {
+    path: 'productos', component: PagesComponent,
+    children:[
+      {path:'', component:ListarProductsComponent, data:{titulo:'Productos listar'}},
+      {path:'editar/:id', component: EditarProductsComponent, data:{titulo:'Editar Producto'}},
+      {path: 'new', component: RegistarProductsComponent, data:{titulo: 'Registrar Producto'}}
+    ]
+  },
+  {
+    path: 'categorias', component: PagesComponent,
+    children:[
+    {path:'', component:ListarCategoryComponent, data:{titulo:'Categorias Listar'}},
     ]
   }
 ]

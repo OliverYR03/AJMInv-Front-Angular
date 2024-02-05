@@ -55,5 +55,6 @@ export class LoginService {
   get userToken(): String{
     return this.currentUserData.value;
   }
+  
 
 }

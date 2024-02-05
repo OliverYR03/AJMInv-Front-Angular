@@ -1,1 +1,69 @@
-<p>registar-products works!</p>
+<div class="card-body">
+    <form (ngSubmit)="onSubmit()" #formulario="ngForm">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="products.name" name="nombre" required minlength="3"
+                maxlength="20" placeholder="Digite su Nombre" #nombre="ngModel">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger mt-2">
+                <div *ngIf="nombre.errors?.['required']">El nombre es requerido.</div>
+                <div *ngIf="nombre.errors?.['minlength'] || nombre.errors?.['maxlength']">Ingrese un nombre válido.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="number" id="stock" class="form-control" [(ngModel)]="products.amount" name="stock" required 
+                maxlength="3" placeholder="Digite la Dirección" #stock="ngModel">
+            <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="text-danger mt-2">
+                <div *ngIf="stock.errors?.['required']">El stock es requerido.</div>
+                <div *ngIf="stock.errors?.['minlength'] || stock.errors?.['maxlength']">Ingrese una cantidad válida.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Proveedor</label>
+            <!-- <input type="text" id="supplier" class="form-control" [(ngModel)]="products.suppliers" name="supplier" 
+                placeholder="Digite su número de supplier" #supplier="ngModel">
+            <div *ngIf="supplier.invalid && (supplier.dirty || supplier.touched)" class="text-danger mt-2">
+                <div *ngIf="supplier.errors?.['pattern']">Ingrese un ruc válido (9 dígitos).</div>
+            </div> -->
+            <!-- En tu archivo .html de Angular -->
+            <select class="form-control" id="idEstudiante" name="selectedSupplier" [(ngModel)]="products.suppliers">
+                <option *ngFor="let provider of providers" [value]="provider.idproveedor">
+                  {{ provider.name }}
+                </option>
+              </select>
+  
+        </div>
+
+        <div class="form-group">
+            <label>Precio</label>
+            <input type="text" id="numero" class="form-control" [(ngModel)]="products.price" name="NUMERO" required
+                   minlength="1" maxlength="4" numero placeholder="Digite su número" #price="ngModel">
+            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger mt-2">
+              <div *ngIf="price.errors?.['required']">El price es requerido.</div>
+              <div *ngIf="price.errors?.['minlength'] || price.errors?.['numero']">Ingrese un price válido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Imagen</label>
+            <input type="number" id="ruc" class="form-control" [(ngModel)]="products.img" name="img" required placeholder="Digite su número de img" #img="ngModel">
+            <div *ngIf="img.invalid && (img.dirty || img.touched)" class="text-danger mt-2">
+                <div *ngIf="img.errors?.['pattern']">Ingrese un ruc válido (9 dígitos).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Categoria</label>
+            <select class="form-control" id="idEstudiante" name="selectedSupplier" [(ngModel)]="products.category">
+                <option *ngFor="let category of category" [value]="category.idcategoria">
+                  {{ category.name }}
+                </option>
+              </select>
+        </div>
+
+
+        <button class="btn btn-success" [disabled]="!formulario.valid">Enviar</button>
+       <a class="btn btn-danger" href="productos" type="button"> Cancelar</a>
+    </form>
+</div>

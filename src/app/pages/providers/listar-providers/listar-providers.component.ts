@@ -29,11 +29,11 @@ export class ListarProvidersComponent implements OnInit{
   }
   
   createProvider(){
-    this.router.navigate(['dashboard/proveedores/new'])
+    this.router.navigate(['proveedores/new'])
   }
 
   updateProvider(id:number){
-    this.router.navigate(['dashboard/proveedores/editar/',id]);
+    this.router.navigate(['proveedores/editar/',id]);
   }
 
   private getAllProviders(){

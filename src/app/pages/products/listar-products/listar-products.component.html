@@ -1,5 +1,5 @@
 
-<a class="btn btn-success float-end" href="products/nuevo" ><i class="fa fa-plus-circle"></i>
+<a class="btn btn-success float-end" href="productos/new" ><i class="fa fa-plus-circle"></i>
     Agregar</a><br><br>
 
 <div class="panel-body table-responsive" id="listadoregistros">
@@ -14,6 +14,7 @@
                 <th>Preecio</th>
                 <th>Imagen</th>
                 <th>Fecha</th>
+                <th>Categoria</th>
                 
             </tr>
         
@@ -27,10 +28,11 @@
                 <td>{{products.idproducto}}</td>
                 <td>{{products.name}}</td>
                 <td>{{products.amount}}</td>
-                <td>{{products.suppliers}}</td>
+                <td>{{products.suppliers.name}}</td>
                 <td>{{products.price}}</td>
                 <td>{{products.img}}</td>
-                <td>{{products.date}}</td>
+                <td>{{products.date | date: 'dd/MM/yyyy hh:mm a'}}</td>
+                <td>{{products.category.name}}</td>
             </tr>
         </tbody>
         

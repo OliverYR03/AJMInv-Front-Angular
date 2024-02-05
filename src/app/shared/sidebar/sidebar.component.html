@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside *ngIf="userLoginOn" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="../../../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -14,7 +14,7 @@
           <img src="../../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"> {{user?.firstname}} {{user?.lastname}} </a>
         </div>
       </div>
 
@@ -63,13 +63,21 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item" *ngFor="let productos of item.submenu">
-                    <a [routerLink]="productos.url" class="nav-link" style="cursor: pointer;">
-                        <i class="{{productos.icon}} ml-1"></i>
-                        <p class="ml-2">{{productos.titulo}}</p>
-                    </a>
-                </li>
-            </ul>
+              <li class="nav-item">
+                  <a href="/productos" class="nav-link" style="cursor: pointer;">
+                      <i class="fa-solid fa-list ml-1"></i>
+                      <p class="ml-2">Listar</p>
+                  </a>
+              </li>
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/productos/new" class="nav-link" style="cursor: pointer;">
+                    <i class="fa-solid fa-plus ml-1"></i>
+                    <p class="ml-2">Registrar</p>
+                </a>
+            </li>
+        </ul>
           </li>
           <li class="nav-item" *ngFor="let item of proveedores">
             <a href="#" class="nav-link">
@@ -81,13 +89,21 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item" *ngFor="let proveedores of item.submenu">
-                    <a [routerLink]="proveedores.url" class="nav-link" style="cursor: pointer;">
-                        <i class="{{proveedores.icon}} ml-1"></i>
-                        <p class="ml-2">{{proveedores.titulo}}</p>
+                <li class="nav-item">
+                    <a href="/proveedores" class="nav-link" style="cursor: pointer;">
+                        <i class="fa-solid fa-list ml-1"></i>
+                        <p class="ml-2">Listar</p>
                     </a>
                 </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="/proveedores/new" class="nav-link" style="cursor: pointer;">
+                      <i class="fa-solid fa-plus ml-1"></i>
+                      <p class="ml-2">Registrar</p>
+                  </a>
+              </li>
+          </ul>
           </li>
           <li class="nav-item" *ngFor="let item of clientes">
             <a href="#" class="nav-link">
@@ -99,13 +115,47 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item" *ngFor="let clientes of item.submenu">
-                    <a [routerLink]="clientes.url" class="nav-link" style="cursor: pointer;">
-                        <i class="{{clientes.icon}} ml-1"></i>
-                        <p class="ml-2">{{clientes.titulo}}</p>
-                    </a>
-                </li>
-            </ul>
+              <li class="nav-item">
+                  <a href="/clientes" class="nav-link" style="cursor: pointer;">
+                      <i class="fa-solid fa-list ml-1"></i>
+                      <p class="ml-2">Listar</p>
+                  </a>
+              </li>
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/clientes/new" class="nav-link" style="cursor: pointer;">
+                    <i class="fa-solid fa-plus ml-1"></i>
+                    <p class="ml-2">Registrar</p>
+                </a>
+            </li>
+        </ul>
+          </li>
+          <li class="nav-item" *ngFor="let item of clientes">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-users"></i>
+              <p>
+                Categorias
+                <i class="right fas fa-angle-left"></i>
+                <span class="badge badge-primary ml-2">{{item.submenu.length}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="/categorias" class="nav-link" style="cursor: pointer;">
+                      <i class="fa-solid fa-list ml-1"></i>
+                      <p class="ml-2">Listar</p>
+                  </a>
+              </li>
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/categorias/new" class="nav-link" style="cursor: pointer;">
+                    <i class="fa-solid fa-plus ml-1"></i>
+                    <p class="ml-2">Registrar</p>
+                </a>
+            </li>
+        </ul>
           </li>
           <li class="nav-item" style="cursor: pointer;">
             <a (click)="logout()" class="nav-link ">
